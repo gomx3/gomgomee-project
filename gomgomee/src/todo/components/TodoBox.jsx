@@ -13,7 +13,7 @@ export default TodoBox;
 const TodoConatiner = styled.div`
     position: fixed;
     top: 15%;
-    left: 20%;
+    left: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;

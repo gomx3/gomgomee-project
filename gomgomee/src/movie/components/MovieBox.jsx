@@ -3,7 +3,7 @@ import styled from "styled-components";
 const MovieBox = () => {
     return (
         <MovieConatiner>
-            <h3>hmmm</h3>
+            <h3>mmm</h3>
         </MovieConatiner>
     )
 }

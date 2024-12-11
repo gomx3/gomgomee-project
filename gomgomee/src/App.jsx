@@ -1,6 +1,8 @@
+import styled from "styled-components";
 import MovieBox from "./movie/components/MovieBox";
 import TodoBox from "./todo/components/TodoBox";
 import UserBox from "./user/components/UserBox";
+import AsciiStar from "./assets/asciistar";
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <TodoBox />
       <UserBox />
       <MovieBox />
+      <AsciiStar />
     </>
   );
 }
