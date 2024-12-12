@@ -1,16 +1,21 @@
-import styled from "styled-components";
-import MovieBox from "./movie/components/MovieBox";
 import TodoBox from "./todo/components/TodoBox";
+import SignInBox from "./user/components/SigninBox";
 import UserBox from "./user/components/UserBox";
-import AsciiStar from "./assets/asciistar";
+import MusicBox from "./music/components/MusicBox";
+import AsciiStar from "./assets/AsciiStar";
+import useAuthStore from "./store/authStore";
 
 function App() {
+  const { isVerified } = useAuthStore();
+
   return (
     <>
-      <h2>gomgomee...🗯️</h2>
+      <div style={{ position: "fixed", top: "0", fontSize: "10rem" }}>
+        gom gomee 🏠
+      </div>
       <TodoBox />
-      <UserBox />
-      <MovieBox />
+      {isVerified ? <UserBox /> : <SignInBox />}
+      <MusicBox />
       <AsciiStar />
     </>
   );
