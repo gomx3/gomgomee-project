@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 const star = `
 　　⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀
@@ -18,15 +16,34 @@ const star = `
 `;
 
 const AsciiStar = () => {
-  return <TextBox>{star}</TextBox>;
+  return (
+    <div
+      style={{
+        position: "fixed",
+        display: "flex",
+        width: "500px",
+        height: "300px",
+        userSelect: "none",
+      }}
+    >
+      {star}
+    </div>
+  );
 };
 
-export default AsciiStar;
+const BackTitle = () => {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "-20px",
+        fontSize: "10rem",
+        userSelect: "none",
+      }}
+    >
+      gom gomee 🏠
+    </div>
+  );
+};
 
-const TextBox = styled.div`
-  position: fixed;
-
-  display: flex;
-  width: 500px;
-  height: 300px;
-`;
+export { AsciiStar, BackTitle };

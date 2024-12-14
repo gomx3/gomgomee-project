@@ -1,8 +1,8 @@
-import TodoBox from "./todo/components/TodoBox";
-import SignInBox from "./user/components/SigninBox";
-import UserBox from "./user/components/UserBox";
-import MusicBox from "./music/components/MusicBox";
-import AsciiStar from "./assets/AsciiStar";
+import TodoBox from "./components/todo/TodoBox";
+import SignInBox from "./components/user/SignInBox";
+import UserBox from "./components/user/UserBox";
+import MusicBox from "./components/music/MusicBox";
+import { AsciiStar, BackTitle } from "./assets/Background";
 import useAuthStore from "./store/authStore";
 
 function App() {
@@ -10,9 +10,7 @@ function App() {
 
   return (
     <>
-      <div style={{ position: "fixed", top: "0", fontSize: "10rem" }}>
-        gom gomee 🏠
-      </div>
+      <BackTitle />
       <TodoBox />
       {isVerified ? <UserBox /> : <SignInBox />}
       <MusicBox />

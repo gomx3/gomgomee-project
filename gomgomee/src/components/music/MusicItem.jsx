@@ -21,6 +21,7 @@ const MusicWrapper = styled.article`
   justify-content: center;
   align-items: center;
   width: 500px;
+  scroll-snap-align: start; /* 부모의 시작점에 맞추어 스냅 */
 `;
 const DetailBox = styled.div`
   width: 295px;
