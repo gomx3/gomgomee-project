@@ -71,9 +71,8 @@ const ListWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  touch-action: pan-x; /* 가로 방향 터치 스크롤 허용 */
+  touch-action: pan-x;
   scroll-behavior: smooth;
 
-  /* 스냅 스크롤 설정 */
-  scroll-snap-type: x mandatory; /* 가로 방향 강제 스냅 */
+  scroll-snap-type: x mandatory; /* 가로 방향 강제 스냅 스크롤 */
 `;

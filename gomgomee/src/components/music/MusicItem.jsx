@@ -27,4 +27,5 @@ const DetailBox = styled.div`
   width: 295px;
   font-size: 0.9rem;
   font-weight: 100;
+  user-select: none;
 `;
