@@ -1,19 +1,31 @@
-import TodoBox from "./components/todo/TodoBox";
-import SignInBox from "./components/user/SignInBox";
-import UserBox from "./components/user/UserBox";
-import MusicBox from "./components/music/MusicBox";
-import { AsciiStar, BackTitle } from "./assets/Background";
-import useAuthStore from "./store/authStore";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./layout/root-layout.jsx";
+import MainPage from "./MainPage.jsx";
+import SignUpPage from "./components/user/SignUpPage.jsx";
+import { AsciiStar, BackTitle } from "./components/Background.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <MainPage />,
+      },
+      {
+        path: "signup",
+        element: <SignUpPage />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  const { isVerified } = useAuthStore();
-
   return (
     <>
       <BackTitle />
-      <TodoBox />
-      {isVerified ? <UserBox /> : <SignInBox />}
-      <MusicBox />
+      <RouterProvider router={router} />
       <AsciiStar />
     </>
   );

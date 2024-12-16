@@ -20,7 +20,6 @@ const AsciiStar = () => {
     <div
       style={{
         position: "fixed",
-        display: "flex",
         width: "500px",
         height: "300px",
         userSelect: "none",

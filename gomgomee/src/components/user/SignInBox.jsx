@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useAuthStore from "../../store/authStore";
+import { useNavigate } from "react-router-dom";
 
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -18,30 +18,38 @@ const SignInBox = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
-    trigger,
-    watch,
+    formState: { errors, isValid },
   } = useForm({ resolver: yupResolver(schema) });
+  const navigate = useNavigate();
 
   // 제출 시 발생할 이벤트
   const onSubmit = async (data) => {
     login(data.email, data.password);
   };
 
-  // email과 password의 변화를 감시
-  useEffect(() => {
-    trigger("email");
-    trigger("password");
-  }, [watch("email"), watch("password"), trigger]);
-
   return (
     <UserContainer>
-      <h3 style={{ color: "white" }}>누구?</h3>
-      <SignInForm onSubmit={handleSubmit(onSubmit)}>
-        <InputBox type="email" {...register("email")} placeholder="id" />
-        <InputBox type="password" {...register("password")} placeholder="pw" />
-        <SignInBtn disabled={!isValid}>저 맞습니다?</SignInBtn>
-      </SignInForm>
+      <UserBox>
+        <h3 style={{ color: "white" }}>누구?</h3>
+        <SignInForm onSubmit={handleSubmit(onSubmit)}>
+          <InputBox
+            type="email"
+            {...register("email")}
+            placeholder="id"
+            error={errors.email?.message}
+          />
+          <InputBox
+            type="password"
+            {...register("password")}
+            placeholder="pw"
+            error={errors.password?.message}
+          />
+          <SignInBtn disabled={!isValid}>저 맞습니다?</SignInBtn>
+        </SignInForm>
+      </UserBox>
+      <MoveToSignUp onClick={() => navigate("/signup")}>
+        click to sign up
+      </MoveToSignUp>
     </UserContainer>
   );
 };
@@ -52,6 +60,11 @@ const UserContainer = styled.div`
   position: fixed;
   top: 300px;
   left: 400px;
+  display: flex;
+  flex-direction: column;
+`;
+const UserBox = styled.div`
+  position: relative;
   background-color: #7e9040;
   width: 400px;
   height: 280px;
@@ -70,6 +83,16 @@ const SignInForm = styled.form`
 const SignInBtn = styled.button`
   margin: 3px;
   padding: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+const MoveToSignUp = styled.div`
+  position: absolute;
+  font-size: 0.8rem;
+  bottom: -25px;
+  right: 10px;
+  user-select: none;
   &:hover {
     cursor: pointer;
   }
