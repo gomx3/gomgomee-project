@@ -19,6 +19,12 @@ const musicItems = [
     singer: "NCT WISH",
     img: "https://image.bugsm.co.kr/album/images/400/41068/4106802.jpg",
   },
+  {
+    id: uuidv4(),
+    title: "Wisdom (with 루루)",
+    singer: "Soul delivery",
+    img: "https://image.bugsm.co.kr/album/images/200/205831/20583159.jpg",
+  },
 ];
 
 export default musicItems;
